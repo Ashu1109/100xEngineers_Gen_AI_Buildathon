@@ -35,6 +35,12 @@ https://github.com/user-attachments/assets/62408efe-a920-400c-8c55-920d99050908
 - Support for various order types (Limit, Market, etc.)
 - Customizable trading parameters
 
+## FlowChart
+<img width="499" alt="Screenshot 2025-06-02 at 10 40 19 AM" src="https://github.com/user-attachments/assets/0b0bbd59-fd92-443b-b3bb-d5d40502fa4f" />
+
+
+
+
 ## Technology Stack
 
 - **Backend**: FastAPI, Python, Binance API
