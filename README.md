@@ -1,81 +1,131 @@
-# MCP Client in Python with FastAPI
+# Crypto Analysis and Trading Platform
 
-This repository contains a complete tutorial on how to create an MCP (Modular Computational Platform) client in Python using FastAPI. The tutorial is inspired by the Claude Desktop application and demonstrates how to make an LLM (Large Language Model) call MCP tools from an MCP server and display the results.
+A powerful application that provides detailed cryptocurrency analysis and automated trading capabilities using the Binance API.
+
+![Crypto Analysis Platform](https://placeholder-for-your-video-thumbnail-1.png)
+![Crypto Trading Platform](https://placeholder-for-your-video-thumbnail-2.png)
 
 ## Features
 
-- Build an MCP client using Python and FastAPI.
-- Integrate LLMs to interact with MCP tools.
-- Fetch and display results from an MCP server.
-- Step-by-step guidance for setting up and running the client.
+### Detailed Cryptocurrency Analysis
+- Real-time market data from Binance API
+- Comprehensive price analysis and trends
+- Historical trading data visualization
+- Market depth and order book information
+- 24-hour price statistics and rolling window analysis
 
-## Prerequisites
+### Automated Trading
+- Place buy/sell orders directly from the interface
+- Test orders before actual execution
+- Support for various order types (Limit, Market, etc.)
+- Customizable trading parameters
 
-- Python 3.8 or higher
-- Basic knowledge of FastAPI and REST APIs
-- An MCP server setup
+## Technology Stack
+
+- **Backend**: FastAPI, Python, Binance API
+- **Frontend**: Streamlit
+- **Authentication**: API key-based authentication with Binance
+- **Data Processing**: Asynchronous HTTP requests with httpx
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd <repository-directory>
+```
+
+2. Create and activate a virtual environment:
+```bash
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+```
+
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+4. Set up environment variables:
+Create a `.env` file in the `api` directory with the following content:
+```
+BINANCE_API_KEY=your_binance_api_key
+BINANCE_API_SECRET=your_binance_api_secret
+```
 
 ## Getting Started
 
-1. **Clone the Repository**:
-  ```bash
-  git clone git@github.com:alejandro-ao/mcp-client-python.git
-  cd mcp-client-python
-  ```
+### Starting the API Server
 
-2. **Install Dependencies**:
-  ```bash
-  pip install -r requirements.txt
-  ```
-
-3. **Set Up Environment Variables**:
-Create a `.env` file in the root directory and add your API keys. In this example, I added the `SERPER_API_KEY` because it is used in the MCP server file, which we built in the [previous tutorial](https://github.com/alejandro-ao/mcp-server-example). And since we are running everything locally, we can set all the environment variables (for both serverand client) in the same file. In a more complex setup, you would deploy your MCP server separately and set the environment variables accordingly.
-
-  ```env
-  ANTHROPIC_API_KEY=
-  SERPER_API_KEY=
-  ```
-
-5. **Run the Application**:
-  ```bash
-  cd api && uvicorn main:app --reload
-  ```
-
-
-6. ** Start the frontend **
-
+1. Navigate to the API directory:
 ```bash
-cd frontend && streamlit run main.py
+cd api
 ```
 
+2. Run the main server:
+```bash
+python main.py
+```
 
-1. **Access the API**:
-  Open your browser and navigate to `http://127.0.0.1:8000/docs` to explore the API documentation.
+This will start the FastAPI server on `http://localhost:8000`.
 
+### Starting the Frontend
 
-## Tutorial Overview
+1. In a new terminal, navigate to the frontend directory:
+```bash
+cd frontend
+```
 
-1. **Setting Up FastAPI**:
-  Learn how to create a FastAPI application and define endpoints.
+2. Run the Streamlit app:
+```bash
+streamlit run main.py
+```
 
-2. **Connecting to the MCP Server**:
-  Understand how to make requests to the MCP server and handle responses.
+This will start the Streamlit application and open it in your default web browser.
 
-3. **Integrating LLMs**:
-  Explore how to use an LLM to call MCP tools dynamically.
+## Usage
 
-4. **Displaying Results**:
-  Implement logic to process and display results from the MCP tools.
+1. **Analyzing Cryptocurrency**:
+   - Use the interface to select a cryptocurrency symbol (e.g., BTCUSDT, ETHUSDT)
+   - View detailed market analysis, including price trends, volume, and market depth
+   - Access historical data and technical indicators
 
-## Resources
+2. **Placing Orders**:
+   - Select the cryptocurrency you want to trade
+   - Choose order type (Limit, Market)
+   - Set quantity and price (for Limit orders)
+   - Submit the order
 
-- [FastAPI Documentation](https://fastapi.tiangolo.com/)
-- [MCP Documentation](https://modelcontextprotocol.io/quickstart/client) (for inspiration)
+## Video Demonstrations
+
+### Crypto Analysis Feature
+[![Crypto Analysis Demo](https://placeholder-for-your-video-thumbnail-1.png)](https://your-video-link-1)
+*This video demonstrates how the application provides detailed analysis of cryptocurrencies, including real-time data, historical trends, and market indicators.*
+
+### Crypto Trading Feature
+[![Crypto Trading Demo](https://placeholder-for-your-video-thumbnail-2.png)](https://your-video-link-2)
+*This video shows how to place cryptocurrency orders through the application interface, with step-by-step instructions on setting up and executing trades.*
+
+## API Documentation
+
+Once the server is running, you can access the API documentation at:
+- Swagger UI: `http://localhost:8000/docs`
+- ReDoc: `http://localhost:8000/redoc`
+
+## Security Notes
+
+- Never share your Binance API keys
+- For enhanced security, consider using API keys with read-only permissions for analysis-only usage
+- The application uses HMAC SHA256 signatures for secure API communication
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+[Include your license information here]
 
-## Acknowledgments
+## Contributing
 
-Special thanks to the creators of FastAPI and the Claude Desktop application for their inspiration.
+[Include contribution guidelines if applicable]
+
+## Contact
+
+[Your contact information]
