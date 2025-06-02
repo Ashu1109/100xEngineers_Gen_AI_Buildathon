@@ -1,9 +1,26 @@
+
+https://github.com/user-attachments/assets/34790ea3-9d21-433d-a531-2c2f7e9c30fc
 # Crypto Analysis and Trading Platform
 
 A powerful application that provides detailed cryptocurrency analysis and automated trading capabilities using the Binance API.
 
-![Crypto Analysis Platform](https://placeholder-for-your-video-thumbnail-1.png)
-![Crypto Trading Platform](https://placeholder-for-your-video-thumbnail-2.png)
+<img width="1440" alt="Screenshot 2025-06-02 at 10 15 02 AM" src="https://github.com/user-attachments/assets/05d00c69-7855-45f3-9739-719868aa7388" />
+
+
+
+
+## Video Demonstrations
+
+### Crypto Analysis Feature
+https://github.com/user-attachments/assets/5daea363-5f54-405d-9697-0625ac0464f8
+
+
+*This video demonstrates how the application provides detailed analysis of cryptocurrencies, including real-time data, historical trends, and market indicators.*
+
+### Crypto Trading Feature
+https://github.com/user-attachments/assets/62408efe-a920-400c-8c55-920d99050908
+
+*This video shows how to place cryptocurrency orders through the application interface, with step-by-step instructions on setting up and executing trades.*
 
 ## Features
 
@@ -96,15 +113,6 @@ This will start the Streamlit application and open it in your default web browse
    - Set quantity and price (for Limit orders)
    - Submit the order
 
-## Video Demonstrations
-
-### Crypto Analysis Feature
-[![Crypto Analysis Demo](https://placeholder-for-your-video-thumbnail-1.png)](https://your-video-link-1)
-*This video demonstrates how the application provides detailed analysis of cryptocurrencies, including real-time data, historical trends, and market indicators.*
-
-### Crypto Trading Feature
-[![Crypto Trading Demo](https://placeholder-for-your-video-thumbnail-2.png)](https://your-video-link-2)
-*This video shows how to place cryptocurrency orders through the application interface, with step-by-step instructions on setting up and executing trades.*
 
 ## API Documentation
 
