@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Dict, Any
 from contextlib import asynccontextmanager
+from mcp_client import MCPClient
 from dotenv import load_dotenv
 from pydantic_settings import BaseSettings
 import uvicorn
@@ -19,19 +20,21 @@ settings = Settings()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    client = MCPClient()
     try:
-        connected = True
+        connected = await client.connect_to_server(settings.server_script_path)
         if not connected:
             raise HTTPException(
                 status_code=500, detail="Failed to connect to MCP server"
             )
+        app.state.client = client
         yield
     except Exception as e:
         print(f"Error during lifespan: {e}")
         raise HTTPException(status_code=500, detail="Error during lifespan") from e
     finally:
         # shutdown
-        pass
+        await client.cleanup()
 
 
 app = FastAPI(title="MCP Client API", lifespan=lifespan)
@@ -49,6 +52,7 @@ app.add_middleware(
 
 class QueryRequest(BaseModel):
     query: str
+    chat_history: list = []
 
 
 class Message(BaseModel):
@@ -65,7 +69,9 @@ class ToolCall(BaseModel):
 async def process_query(request: QueryRequest):
     """Process a query and return the response"""
     try:
-        messages = "query"
+        messages = await app.state.client.process_query(
+            request.query, request.chat_history
+        )
         return {"messages": messages}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -75,19 +81,15 @@ async def process_query(request: QueryRequest):
 async def get_tools():
     """Get the list of available tools"""
     try:
-        tools = "tools"
+        tools = await app.state.client.get_mcp_tools()
         return {
             "tools": [
                 {
-                    "name": "tools",
-                    "description": "tools",
-                    "input_schema": "tools",
-                },
-                {
-                    "name": "tools",
-                    "description": "tools",
-                    "input_schema": "tools",
+                    "name": tool.name,
+                    "description": tool.description,
+                    "input_schema": tool.inputSchema,
                 }
+                for tool in tools
             ]
         }
     except Exception as e:

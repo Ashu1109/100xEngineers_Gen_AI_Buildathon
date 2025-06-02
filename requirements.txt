@@ -4,3 +4,7 @@ python-dotenv
 pydantic
 pydantic-settings
 httpx
+mcp
+anthropic
+selenium
+cloudinary
