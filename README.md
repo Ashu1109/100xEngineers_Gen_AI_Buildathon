@@ -1,5 +1,3 @@
-
-https://github.com/user-attachments/assets/34790ea3-9d21-433d-a531-2c2f7e9c30fc
 # Crypto Analysis and Trading Platform
 
 A powerful application that provides detailed cryptocurrency analysis and automated trading capabilities using the Binance API.
